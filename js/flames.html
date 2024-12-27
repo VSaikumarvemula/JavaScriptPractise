@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLAMES Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FLAMES Calculator</h1>
+        <input type="text" id="name1" placeholder="Enter the first name" required>
+        <input type="text" id="name2" placeholder="Enter the second name" required>
+        <button onclick="calculateFLAMES()">Calculate</button>
+        
+        <div class="result" id="result"></div>
+    </div>
+    <script>
+        function calculateFLAMES() {
+            const name1 = document.getElementById('name1').value.toLowerCase().replace(/\s+/g, '');
+            const name2 = document.getElementById('name2').value.toLowerCase().replace(/\s+/g, '');
+
+            if (name1 === '' || name2 === '') {
+                document.getElementById('result').innerText = 'Please enter both names.';
+                return;
+            }
+
+            let combined = name1 + name2;
+
+            for (let i = 0; i < name1.length; i++) {
+                if (name2.includes(name1[i])) {
+                    name2 = name2.replace(name1[i], '');
+                    combined = combined.replace(name1[i], '');
+                }
+            }
+
+            const flames = ['Friends', 'Lovers', 'Affection', 'Marriage', 'Enemies', 'Siblings'];
+            let length = combined.length;
+            let index = 0;
+
+            while (flames.length > 1) {
+                index = (index + length - 1) % flames.length;
+                flames.splice(index, 1);
+            }
+
+            const result = flames[0];
+
+            document.getElementById('result').innerText = `Relationship: ${result}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Over and Mouse Out</title>
+    <script>
+        function handlemouseover() {
+            document.getElementById("display").innerHTML = "He is God";
+        }
+        function handlemouseout() {
+            document.getElementById("display").innerHTML = "You are out of the God pic";
+        }
+    </script>
+</head>
+<body>
+    <h1>Mouse Over and Mouse Out</h1>
+    <img src="god.jpg" width="50%" height="50%" onmouseover="handlemouseover()" onmouseout="handlemouseout()">
+    <p id="display"></p>
+</body>
+</html>

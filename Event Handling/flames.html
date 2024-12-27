@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLAMES Game</title>
+    <style>
+        body {
+            font-family: 'Verdana', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            color: #6c63ff;
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            background-color: #f9f9f9;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            background: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #5848c2;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FLAMES Game</h1>
+        <label for="name1">Your Name:</label>
+        <input type="text" id="name1" placeholder="Enter your name">
+        <label for="name2">Partner's Name:</label>
+        <input type="text" id="name2" placeholder="Enter partner's name">
+        <button onclick="calculateFlames()">Calculate FLAMES</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateFlames() {
+            const name1 = document.getElementById('name1').value.toLowerCase().replace(/\s+/g, '');
+            const name2 = document.getElementById('name2').value.toLowerCase().replace(/\s+/g, '');
+
+            // Remove common characters
+            const combinedName = name1 + name2;
+            const uniqueChars = new Set([...combinedName]);
+            let count = 0;
+
+            uniqueChars.forEach(char => {
+                const name1Count = [...name1].filter(c => c === char).length;
+                const name2Count = [...name2].filter(c => c === char).length;
+                count += Math.abs(name1Count - name2Count);
+            });
+
+            // FLAMES logic
+            let flames = ['f', 'l', 'a', 'm', 'e', 's'];
+            while (flames.length > 1) {
+                const removalIndex = (count % flames.length || flames.length) - 1;
+                flames.splice(removalIndex, 1);
+                flames = [...flames.slice(removalIndex), ...flames.slice(0, removalIndex)];
+            }
+
+            const meanings = {
+                'f': 'Friends',
+                'l': 'Lovers',
+                'a': 'Affection',
+                'm': 'Marriage',
+                'e': 'Enemies',
+                's': 'Siblings'
+            };
+
+            document.getElementById('result').innerText = `The relationship is: ${meanings[flames[0]]}`;
+        }
+    </script>
+</body>
+</html>

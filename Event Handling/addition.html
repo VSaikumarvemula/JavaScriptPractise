@@ -1,0 +1,39 @@
+<html>
+    <body >
+        <form action="url:" method="get">
+            <label>enter num1:</label>
+            <input type="number" id="n1" required > <br> <br>
+
+            <label>enter num2:</label>
+            <input type="number" id="n2" required > <br> <br>
+
+            <label>result:</label>
+            <input type="number" id="r" readonly> <br> <br>
+
+            <button input="button" onclick="add()" >add </button>
+
+        </form>
+    </body>
+
+    <head>
+        <script>
+            function add(){
+                // 1. read the inputs 
+                let n1 = document.getElementById("n1").value;
+                let n2 = document.getElementById("n2").value;
+
+                n1=parseInt(n1);
+                n2=parseInt(n2);
+
+
+                // 2. clacualte the sum...logic 
+                let sum =n1+n2; 
+
+                // 3. set the sum value to the sum field....
+                document.getElementById("r").value = sum;
+
+
+            }
+        </script>
+    </head>
+</html>

@@ -1,0 +1,54 @@
+<html>
+    <body>
+        <form action="url:" method="get">
+            <label>Enter amount in USD:</label>
+            <input type="number" id="usd" required>
+            <br> <br>
+            <label>Select Current:</label>
+            <select id="currency" required onchange="currencyChanger()">
+                <option >--Select a currency--</option>
+                <option value="EUR">Euro(EUR)</option>
+                <option value="GBP">BritishPound(GBP)</option>
+                <option value="JPY">Japanese Yen(JPY)</option>
+                <option value="AUD">AustralianDollar(AUD)</option>
+            </select> <br><br>
+            <label>Converted Amount:</label>
+            <input type="number" readonly id="CA"> 
+           
+        </form>
+
+    </body>
+
+
+    <head>
+        <script>
+            function currencyChanger(){
+                // read the usd input...
+                let usd = document.getElementById("usd").value;
+
+                // read the currency type..
+                let currency = document.getElementById("currency").value;
+                // convert the usd different currrency .....
+
+                let amount;
+
+                switch(currency){
+                    case "EUR" : amount = usd*10;
+                          break;
+                    case "GBP" : amount = usd*20;
+                          break;
+                    case "JPY" : amount = usd*30;
+                          break;
+                    case "AUD" : amount = usd*40;
+                          break;
+                    default : amount = usd;
+                          break;
+                }
+               // set the amount to the converter amount
+               document.getElementById("CA").value = amount ;
+            }
+        </script>
+
+    </head>
+        
+</html>

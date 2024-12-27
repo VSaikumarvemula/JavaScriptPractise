@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <script>
+            function cutFruitPieces(fruit) {
+                return fruit; // here fruit value will no of pieces i.e 4
+            }
+
+            function fruitProcessor(apples, oranges) {
+                 apples = fruit*apples;  // total no of apples pieces
+                 oranges = fruit*oranges; // total no of orange pieces
+                let value = `Juice prepared with ${apples} pieces of apple & ${oranges} pieces of orange`;
+                return value;
+            }
+
+            // Call the functions
+            fruit = cutFruitPieces(4);  // Fixed value 4
+            let value = fruitProcessor(8, 6);    // no of apples and no of oranges
+            console.log(value);
+
+        </script>
+    </head>
+</html>

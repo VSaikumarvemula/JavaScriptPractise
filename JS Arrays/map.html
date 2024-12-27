@@ -1,0 +1,26 @@
+<html>
+    <script>
+
+        let marks =[45,35,56,27,66,10];
+
+        // increasing all marks +2
+        marks.map(mark => mark+2)
+        .forEach(mark =>console.log(mark));
+        console.log("*********");
+
+        // filter the marks<50 increse +3 marks to all
+        marks.filter(marks => marks <50)
+        .map(mark =>mark+3)
+        .forEach(mark => console.log(mark));
+
+        console.log("&&&&&&&&&&");
+
+        //filter marks >50 declare -5 print..
+        marks.filter(mark =>mark >50)
+        .map(mark => mark-5)
+        .forEach(mark =>console.log(mark));
+
+    </script>
+
+</html>
+

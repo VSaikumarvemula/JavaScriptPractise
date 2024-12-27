@@ -1,0 +1,72 @@
+<html>
+    <body>
+        <form action="URL:" method="get" style="color:red">
+        <label>Maths:</label>
+        <input type="number" id="m" required> <br> <br>
+
+        <label>Social:</label>
+        <input type="number" id="s" required> <br> <br>
+
+        <label>Science:</label>
+        <input type="number" id="sc" required> <br> <br>
+
+        <label>Total:</label>
+        <input type="number" id="t" readonly> <br> <br>
+
+        <label>Average:</label>
+        <input type="number" id="a" readonly> <br> <br>
+
+        <label>Grade:</label>
+        <input type="text" id="g" required> <br> <br>
+
+        <button type="button" onClick="getResults()">enter</button>
+    </form>
+
+    </body>
+
+    </body>
+    <head>
+        <script>
+            function getResults(){
+                // read the marks 
+                let maths=document.getElementById("m").value;
+                let social=document.getElementById("s").value;
+                let science=document.getElementById("sc").value;
+
+                maths=parseInt(maths);
+                social=parseInt(social);
+                science=parseInt(science);
+
+                let total =maths+social+science;
+                let avg =total/3;
+                let rank;
+                if(avg>=90){
+                    rank="A";
+
+                }
+                if(avg>=80){
+                    rank="B";
+                    
+                }
+                if(avg>=70){
+                    rank="C";
+                    
+                }
+                if(avg>=60){
+                    rank="D";
+                    
+                }
+                else{
+                    rank="Fail";
+                }
+                // set the values to the fields....
+                document.getElementById("t").value = total;
+                document.getElementById("a").value = avg.toFixed(2);
+                document.getElementById("g").value = rank;
+
+                
+
+            }
+        </script>
+    </head>
+</html>

@@ -1,0 +1,45 @@
+<html>
+    <body>
+        <h1>Personalized Greeting</h1>
+        <label>Enter your name:</label>
+        <input type="text" id="name" required>
+        <br><br>
+        <button type="button" onclick="fun()">
+        get greeting
+        </button>
+        <p style="color:green" id="msg"></p>
+    </body>
+    <head>
+    <script>
+        function fun(){
+            let message;
+            const hours = new Date().getHours();
+
+            let name = document.getElementById("name").value;
+            
+            if (hours >=21){
+                 message ="GOOD night";
+            }
+
+            else if(hours >=17){
+                message ="GOOD evening";
+
+            }
+
+            else if(hours >=12){
+                message ="GOOD Afternoon";
+
+            }
+            
+            else{
+                message = "GOOD Morning";
+            }
+
+            let message2 = message + " " +name;
+
+            document.getElementById("msg").innerHTML = message2;
+
+        }
+    </script>
+    </head>
+</html>

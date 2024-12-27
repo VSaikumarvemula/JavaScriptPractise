@@ -1,0 +1,33 @@
+<html>
+    <head>
+    <script>
+    function convertor() {
+        // step 1: read the farenheit data..
+        let f=document.getElementById('farenheit').value;
+
+        // step 2: convert the farenheit to celcius...
+        let c=(f-32)*5/9;
+        
+        //step3: set the celcius value to celsius field..
+        document.getElementById('celsius').value=c.toFixed(2);
+    }
+</script>
+</head>
+
+<body>
+    <form action="url:" method="get">
+        <label>Farenheit:</label>
+        <input type="number" id="farenheit" required><br> <br>
+
+        <label>Celsius:</label>
+        <input type="number" id="celsius" readonly><br><br>
+
+        <button type="button" onclick=" convertor()">convert </button>
+
+    </form>
+
+
+</body>
+
+
+</html>

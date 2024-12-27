@@ -1,0 +1,32 @@
+<html>
+    <body>
+        <h1> convert the dollar in to ruppes...</h1>
+        <form action="url:" method="get" >
+            
+            <label>Dollar:</label>
+            <input type="number" id="d" oninput="calculate()" required>
+            <br><br>
+
+            <label>Ruppes:</label>
+            <input type="number" id="Rs"  readonly >
+        
+        </form>
+    </body>
+
+    <head>
+        <script>
+            function calculate() {
+                // 1. read the dollar..inputs
+                let d = document.getElementById("d").value;
+
+                // 2. convert it to the indian rupee..logic
+                let r = d*80;
+
+                // 3. set the value of ruppes in the rupees field
+                document.getElementById("Rs").value = r;
+
+            }
+
+        </script>
+    </head>
+</html>

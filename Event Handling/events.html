@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Events</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .section { margin-bottom: 20px; }
+    </style>
+    <script>
+        // Mouse Events
+        function handleClick() { alert("Image clicked!"); }
+        function handleDoubleClick() { alert("Image double-clicked!"); }
+        function handleMouseDown() { alert("Mouse button pressed down!"); }
+        function handleMouseUp() { alert("Mouse button released!"); }
+        function handleMouseOver() { alert("Mouse over image!"); }
+        function handleMouseMove() { console.log("Mouse moving over image"); }
+        function handleMouseOut() { alert("Mouse out of image!"); }
+        function handleMouseEnter() { alert("Mouse entered the image!"); }
+        function handleMouseLeave() { alert("Mouse left the image!"); }
+        function handleMouseWheel() { alert("Mouse wheel used!"); }
+        function handleWheel() { alert("Wheel event detected!"); }
+
+       
+      
+
+        // Clipboard Events
+       
+
+        // Media Events
+       
+    </script>
+</head>
+<body>
+    <h1>JavaScript Events</h1>
+
+    <div class="section">
+        <h2>Mouse Events</h2>
+        <img src="god.jpg" width="50%" height="50%"
+             onclick="handleClick()"
+             ondblclick="handleDoubleClick()"
+             onmousedown="handleMouseDown()"
+             onmouseup="handleMouseUp()"
+             onmouseover="handleMouseOver()"
+             onmousemove="handleMouseMove()"
+             onmouseout="handleMouseOut()"
+             onmouseenter="handleMouseEnter()"
+             onmouseleave="handleMouseLeave()"
+             onmousewheel="handleMouseWheel()"
+             onwheel="handleWheel()">
+    </div>
+
+    <div class="section">
+        <h2>Keyboard Events</h2>
+        <input type="text" onkeydown="handleKeyDown()" onkeypress="handleKeyPress()" onkeyup="handleKeyUp()">
+    </div>
+
+    <div class="section">
+        <h2>Form Events</h2>
+        <form onsubmit="handleSubmit()" onreset="handleReset()">
+            <input type="text" onblur="handleBlur()" onchange="handleChange()" onfocus="handleFocus()" oninput="handleInput()" onselect="handleSelect()">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+    </div>
+
+    <div class="section">
+        <h2>Window Events</h2>
+        <p>Resize or unload the window to see the events.</p>
+    </div>
+
+    <div class="section">
+        <h2>Clipboard Events</h2>
+        <textarea oncopy="handleCopy()" oncut="handleCut()" onpaste="handlePaste()"></textarea>
+    </div>
+
+    <div class="section">
+        <h2>Media Events</h2>
+        <video width="320" height="240" controls
+               onabort="handleMediaEvent(event)"
+               oncanplay="handleMediaEvent(event)"
+               oncanplaythrough="handleMediaEvent(event)"
+               ondurationchange="handleMediaEvent(event)"
+               onemptied="handleMediaEvent(event)"
+               onended="handleMediaEvent(event)"
+               onloadeddata="handleMediaEvent(event)"
+               onloadedmetadata="handleMediaEvent(event)"
+               onloadstart="handleMediaEvent(event)"
+               onpause="handleMediaEvent(event)"
+               onplay="handleMediaEvent(event)"
+               onplaying="handleMediaEvent(event)"
+               onprogress="handleMediaEvent(event)"
+               onratechange="handleMediaEvent(event)"
+               onseeked="handleMediaEvent(event)"
+               onseeking="handleMediaEvent(event)"
+               onstalled="handleMediaEvent(event)"
+               onsuspend="handleMediaEvent(event)"
+               ontimeupdate="handleMediaEvent(event)"
+               onvolumechange="handleMediaEvent(event)"
+               onwaiting="handleMediaEvent(event)">
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</body>
+</html>
